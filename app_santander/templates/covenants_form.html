@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+
+{% block title %}Editar Convênio{% endblock %}
+
+{% block content %}
+<h1>Editar Bank</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% for field in form %}
+        {% if field.errors %}
+            <ul>
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+    <button type="submit">Salvar</button>
+    <button type="button" onclick="window.location.href='{% url 'bank_list' %}'">Cancelar</button>
+</form>
+
+<h2>X</h2>
+<p>Data de Criação: {{ non_editable_fields.is_created }}</p>
+<p>Data de Atualização: {{ non_editable_fields.is_updated }}</p>
+{% endblock %}

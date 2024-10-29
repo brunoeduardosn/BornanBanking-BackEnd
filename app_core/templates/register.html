@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Tenant e Usuário</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Cadastro de Tenant e Usuário</h1>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Cadastro de Tenant e Usuário</h1>
+        <form method="post">
+            {% csrf_token %}
+            <h2>Dados do Tenant</h2>
+            {{ tenant_form.as_p }}
+            <h2>Dados do Usuário</h2>
+            {{ user_form.as_p }}
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

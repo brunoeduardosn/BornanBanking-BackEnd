@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+
+{% block title %}Lista de Bancos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Lista de Bancos</h1>
+    <a href="{% url 'create_bank' %}">Criar Novo Banco</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bank in banks %}
+                <tr>
+                    <td><a href="{% url 'edit_bank' bank.id %}">{{ bank.name }}</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
